@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canny Princessa Kuntoro — Sweet 17</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080606;--bg2:#10090a;--red:#b51f34;--red2:#df4a5d;--muted:#aaa0a2;--line:rgba(255,255,255,.12)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:#fff;font-family:"DM Sans",sans-serif;font-weight:300;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+section{position:relative;overflow:hidden}
+.container{width:min(1050px,90%);margin:auto}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+#opening{min-height:100svh;display:grid;place-items:center;text-align:center;background:radial-gradient(circle at 72% 45%,rgba(181,31,52,.22),transparent 28%),radial-gradient(circle at 25% 80%,rgba(181,31,52,.10),transparent 25%),var(--bg)}
+#opening:before{content:"";position:absolute;width:440px;height:440px;border:1px solid rgba(223,74,93,.14);border-radius:50%}
+.glow{position:absolute;width:250px;height:250px;border-radius:50%;background:rgba(181,31,52,.09);filter:blur(45px)}
+.open-content{position:relative;z-index:2;padding:30px}
+.eyebrow,.kicker{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#b9afb1}
+.script{font-family:"Great Vibes",cursive;color:var(--red2);font-size:clamp(58px,10vw,112px);line-height:.92;margin:20px 0 18px}
+.sweet{font-family:"Cormorant Garamond",serif;font-size:clamp(19px,3vw,28px);letter-spacing:10px}
+.open-date{font-size:10px;letter-spacing:3px;color:#c7bec0;margin-top:28px}
+.open-btn,.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;border:1px solid rgba(223,74,93,.75);background:transparent;color:#fff;cursor:pointer;font-size:10px;letter-spacing:3px;text-transform:uppercase;transition:.3s}
+.open-btn{margin-top:34px}
+.open-btn:hover,.btn:hover{background:var(--red);border-color:var(--red)}
+.scroll{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:3px;color:#776d70}
+.scroll:after{content:"↓";display:block;margin-top:7px;color:var(--red2);font-size:15px}
+.section{padding:105px 0}
+.section-head{text-align:center;margin-bottom:52px}
+h2{font-family:"Cormorant Garamond",serif;font-size:clamp(42px,7vw,68px);font-weight:500;margin:10px 0}
+.sub{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#807477}
+.reveal .side{position:absolute;top:50%;width:175px;height:175px;opacity:0;pointer-events:none;transition:opacity .85s ease,transform 1.15s cubic-bezier(.18,.74,.24,1)}
+.side:before{content:"";position:absolute;inset:14px;border:1px solid rgba(223,74,93,.24);border-radius:50%;box-shadow:0 0 40px rgba(181,31,52,.12)}
+.side:after{content:"";position:absolute;width:62px;height:108px;left:56px;top:34px;border:1px solid rgba(223,74,93,.3);border-radius:8px 55px 8px 55px;transform:rotate(28deg);background:linear-gradient(140deg,rgba(223,74,93,.1),transparent)}
+.left{left:-135px;transform:translateX(-55px) translateY(-50%) rotate(-16deg)}
+.right{right:-135px;transform:translateX(55px) translateY(-50%) rotate(16deg)}
+.reveal.show .side{opacity:1}
+.reveal.show .left{transform:translateX(18px) translateY(-50%) rotate(-16deg)}
+.reveal.show .right{transform:translateX(-18px) translateY(-50%) rotate(16deg)}
+#details,#gallery{background:var(--bg2)}
+.details-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.detail{padding:42px 18px;text-align:center;border-right:1px solid var(--line)}
+.detail:last-child{border-right:0}
+.icon{color:var(--red2);font-size:24px;margin-bottom:15px}
+.detail small{display:block;color:#807477;font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px}
+.detail strong{font-family:"Cormorant Garamond";font-size:25px;font-weight:500}
+.map{text-align:center;margin-top:32px}
+#countdown{text-align:center;background:#080606}
+.count-row{display:flex;justify-content:center;gap:clamp(25px,8vw,85px);margin-top:30px}
+.time strong{display:block;font-family:"Cormorant Garamond";font-size:50px;font-weight:400;line-height:1}
+.time span{display:block;margin-top:9px;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:#7d7275}
+.photo{position:relative;display:grid;place-items:center;background:radial-gradient(circle at 50% 30%,rgba(181,31,52,.18),transparent 38%),linear-gradient(145deg,#1c0c0f,#0e090a);border:1px solid var(--line);color:#735f63}
+.photo:first-child{grid-row:1/3}
+.photo:before{content:"PHOTO";font-size:10px;letter-spacing:4px}
+.photo:after{content:"";position:absolute;inset:12px;border:1px solid rgba(255,255,255,.065)}
+#rsvp{background:#080606}
+.rsvp-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.rsvp-copy p{color:var(--muted);font-size:14px;line-height:1.8}
+.form{border:1px solid var(--line);background:rgba(255,255,255,.012);padding:30px}
+label{display:block;margin-bottom:8px;color:#9b9092;font-size:9px;letter-spacing:2px;text-transform:uppercase}
+input,select{width:100%;margin-bottom:20px;padding:13px 14px;border:1px solid rgba(255,255,255,.14);background:#0c0a0b;color:#fff;outline:none;font-size:13px}
+input:focus,select:focus{border-color:var(--red2)}
+.form .btn{width:100%;background:var(--red);border-color:var(--red)}
+.form .btn:disabled{opacity:.75;cursor:wait}
+#rsvpStatus{min-height:17px;margin:13px 0 0;text-align:center;font-size:10px;color:#817478}
+footer{padding:82px 20px 90px;text-align:center;background:#060505;border-top:1px solid var(--line)}
+footer .script{font-size:58px;margin:12px 0 9px}
+footer p{margin:0;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#706366}
+.music{position:fixed;right:18px;bottom:18px;z-index:30;width:44px;height:44px;border-radius:50%;border:1px solid rgba(223,74,93,.55);background:#13090b;color:var(--red2);cursor:pointer;font-size:18px}
+.hidden-frame{display:none}
+@media(max-width:740px){
+  .section{padding:88px 0}
+  .details-grid{grid-template-columns:1fr}
+  .detail{border-right:0;border-bottom:1px solid var(--line)}
+  .detail:last-child{border-bottom:0}
+  .photo:first-child{grid-row:1/2}
+  .rsvp-grid{grid-template-columns:1fr;gap:35px}
+  .count-row{gap:25px}
+  .time strong{font-size:40px}
+  .reveal .side{width:120px;height:120px}
+  .side:before{inset:8px}
+  .side:after{width:42px;height:72px;left:39px;top:24px}
+  .left{left:-83px}
+  .right{right:-83px}
+  .reveal.show .left{transform:translateX(8px) translateY(-50%) rotate(-16deg)}
+  .reveal.show .right{transform:translateX(-8px) translateY(-50%) rotate(16deg)}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<section id="opening">
+  <div class="glow"></div>
+  <div class="open-content">
+    <div class="eyebrow">You're invited to</div>
+    <div class="script">Canny Princessa<br>Kuntoro</div>
+    <div class="sweet">S W E E T&nbsp;&nbsp;1 7</div>
+    <div class="open-date">17 OCTOBER 2026&nbsp;&nbsp;•&nbsp;&nbsp;18.00&nbsp;&nbsp;•&nbsp;&nbsp;THE NINE</div>
+    <a class="open-btn" href="#details">Open Invitation</a>
+  </div>
+  <div class="scroll">SCROLL</div>
+</section>
+
+<section id="details" class="section reveal">
+  <div class="side left"></div><div class="side right"></div>
+  <div class="container">
+    <div class="section-head"><div class="kicker">Save the date</div><h2>The Celebration</h2><p class="sub">One evening · One beautiful memory</p></div>
+    <div class="details-grid">
+      <div class="detail"><div class="icon">♡</div><small>Date</small><strong>17 October 2026</strong></div>
+      <div class="detail"><div class="icon">◷</div><small>Time</small><strong>18.00 WIB</strong></div>
+      <div class="detail"><div class="icon">⌖</div><small>Venue</small><strong>The Nine</strong></div>
+    </div>
+    <div class="map"><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=The+Nine">View Location ↗</a></div>
+  </div>
+</section>
+
+<section id="countdown" class="section reveal">
+  <div class="side left"></div><div class="side right"></div>
+  <div class="container">
+    <div class="section-head"><div class="kicker">Counting down to the night</div><h2>See you soon.</h2></div>
+    <div class="count-row">
+      <div class="time"><strong id="days">00</strong><span>Days</span></div>
+      <div class="time"><strong id="hours">00</strong><span>Hours</span></div>
+      <div class="time"><strong id="minutes">00</strong><span>Minutes</span></div>
+      <div class="time"><strong id="seconds">00</strong><span>Seconds</span></div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="rsvp" class="section reveal">
+  <div class="side left"></div><div class="side right"></div>
+
+  <div class="container rsvp-grid">
+    <div class="rsvp-copy">
+      <div class="kicker">Will you join me?</div>
+      <h2>RSVP</h2>
+      <p>Please confirm your attendance and help me make this evening extra special.</p>
+      <p style="color:#776b6e;font-size:11px">Kindly respond before 8 October 2026.</p>
+    </div>
+
+    <form id="rsvpForm" class="form" autocomplete="off" method="GET" target="rsvpFrame" action="https://script.google.com/macros/s/AKfycby7lRpc7QhCXaiUuwZOOck7YpVpyDjhwWnk5dqNL2Gp0Lgi6C2_nbeSpImflrRRF5IG/exec">
+      <label for="guestName">Full Name</label>
+      <input
+        id="guestName"
+        name="name"
+        type="text"
+        placeholder="Your name"
+        autocomplete="off"
+        autocapitalize="words"
+        required
+      >
+
+      <label for="guestAttendance">Attendance</label>
+      <select id="guestAttendance" name="attendance" required>
+        <option value="">Choose one</option>
+        <option value="Yes, I'll be there ♡">Yes, I'll be there ♡</option>
+        <option value="Sorry, I can't make it">Sorry, I can't make it</option>
+      </select>
+
+      <button class="btn" id="sendBtn" type="submit">SEND RSVP</button>
+      <p id="rsvpStatus" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="kicker">See you there</div>
+  <div class="script">Canny Princessa</div>
+  <p>Sweet Seventeen · 17.10.2026 · The Nine</p>
+</footer>
+
+<iframe name="rsvpFrame" id="rsvpFrame" title="RSVP submission" style="display:none;width:0;height:0;border:0;position:absolute;left:-9999px;"></iframe>
+
+<button class="music" type="button" onclick="toggleMusic()">♪</button>
+<audio id="bgm" loop preload="none"></audio>
+
+<script>
+const sections=document.querySelectorAll(".reveal");
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add("show");});
+},{threshold:.18});
+sections.forEach(section=>observer.observe(section));
+
+const eventTime=new Date("2026-10-17T18:00:00+07:00").getTime();
+function updateCountdown(){
+  let r=Math.max(0,eventTime-Date.now());
+  const d=Math.floor(r/86400000);r%=86400000;
+  const h=Math.floor(r/3600000);r%=3600000;
+  const m=Math.floor(r/60000);r%=60000;
+  const s=Math.floor(r/1000);
+  document.getElementById("days").textContent=String(d).padStart(2,"0");
+  document.getElementById("hours").textContent=String(h).padStart(2,"0");
+  document.getElementById("minutes").textContent=String(m).padStart(2,"0");
+  document.getElementById("seconds").textContent=String(s).padStart(2,"0");
+}
+updateCountdown();setInterval(updateCountdown,1000);
+
+const form = document.getElementById("rsvpForm");
+const button = document.getElementById("sendBtn");
+const status = document.getElementById("rsvpStatus");
+
+form.addEventListener("submit", function(){
+  const name = document.getElementById("guestName").value.trim();
+  const attendance = document.getElementById("guestAttendance").value;
+
+  if (!name || !attendance) return;
+
+  // Native GET submission goes to the hidden iframe.
+  // The browser automatically builds: /exec?name=...&attendance=...
+  button.disabled = true;
+  button.textContent = "SENDING...";
+  status.textContent = "Sending your RSVP...";
+  status.style.color = "#817478";
+
+  setTimeout(function(){
+    button.disabled = false;
+    button.textContent = "SEND RSVP";
+    status.textContent = "Thank you! Your RSVP has been received ♡";
+    status.style.color = "#d53a4d";
+    form.reset();
+  }, 1200);
+});
+
+function toggleMusic(){
+  const audio=document.getElementById("bgm");
+  if(!audio.querySelector("source")){
+    alert("Music has not been added yet.");
+    return;
+  }
+  if(audio.paused)audio.play().catch(()=>{});
+  else audio.pause();
+}
+</script>
+</body>
+</html>
